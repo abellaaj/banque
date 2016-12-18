@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <CLIENT codeClient="1027" nomClient="BELLAAJ" adresseClient="116 boulevard Gabriel Peri"/>
+  <COMPTE codeCompte="compte1027_1" dateCreation="2016-12-06 00:00:00" solde="200000" codeClient="1027" TYPE_CPTE="CC" decouvert="1000"/>
+</dataset>
