@@ -19,9 +19,10 @@ public interface IbanqueMetier {
 	public void retrait(String codeCpte, double montant);
 	public void virement(String codeCpte1, String codeCpte2, double montant);
 	public Compte consulterCompte(String codeCpte);
-	public List<Operation>consulterOperations(String codeCompte);
+	public List<Operation>consulterOperations(String codeCompte, int position, int nbOperation);
 	public Client consulterClient(Long codeCli);
 	public List<Client > consulterClients(String motCle);
 	public List<Compte> getComptesByClient(Long codeCli);
+	public long getNombreOperations(String codeCompte);
 
 }

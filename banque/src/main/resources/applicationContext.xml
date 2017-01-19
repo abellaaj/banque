@@ -7,15 +7,15 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	
-	<bean name="banqueDao" class="fr.ides.gestion.banque.dao.BanqueDaoImpl"/>
+	<!--bean name="banqueDao" class="fr.ides.gestion.banque.dao.BanqueDaoImpl"/>
 	<bean name="banqueMetier" class="fr.ides.gestion.banque.metier.BanqueMetierImpl">
 		<property name="dao" ref="banqueDao"/>
-	</bean>
+	</bean-->
 	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-   	 	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-    	<property name="url" value="jdbc:mysql://sql7.freesqldatabase.com:3306/sql7149883" />
-    	<property name="username" value="sql7149883" />
-    	<property name="password" value="YprNGrEEG3" />
+   	 	<property name="driverClassName" value="org.postgresql.Driver" />
+    	<property name="url" value="jdbc:postgresql://localhost:5432/banque" />
+    	<property name="username" value="postgres" />
+    	<property name="password" value="root" />
 	</bean>
 	
 	<bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
@@ -36,4 +36,5 @@
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <context:annotation-config></context:annotation-config>
+    <context:component-scan base-package="fr.ides.gestion.banque" />
 </beans>

@@ -24,7 +24,7 @@ public class Client implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 7752368442986822558L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codeClient;

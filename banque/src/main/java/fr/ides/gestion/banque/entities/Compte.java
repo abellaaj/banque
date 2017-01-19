@@ -44,7 +44,7 @@ public class Compte implements Serializable{
 	public void setCodeCompte(String codeCompte) {
 		this.codeCompte = codeCompte;
 	}
-	public Date getDatetoCreation() {
+	public Date getDateCreation() {
 		return dateCreation;
 	}
 	public void setDateCreation(Date dateCreation) {

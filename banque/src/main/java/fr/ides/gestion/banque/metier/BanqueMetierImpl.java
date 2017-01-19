@@ -20,35 +20,35 @@ import fr.ides.gestion.banque.entities.Versement;
  *
  */
 @Transactional
-//@Service("banqueMetier")
+@Service("banqueMetier")
 public class BanqueMetierImpl implements IbanqueMetier{
 	
 	@Autowired
-	private IbanqueDao dao;
+	private IbanqueDao banqueDao;
 	
-	public void setDao(IbanqueDao dao) {
-		this.dao = dao;
+	public void setDao(IbanqueDao banqueDao) {
+		this.banqueDao = banqueDao;
 	}
 
 	public Client addClient(Client c) {
-		return dao.addClient(c);
+		return banqueDao.addClient(c);
 	}
 
 	public Compte addCompte(Compte cp, Long codeClient) {
-		return dao.addCompte(cp, codeClient);
+		return banqueDao.addCompte(cp, codeClient);
 	}
 
 	public void versement(String codeCpte, double montant) {
 		Versement versement = new Versement(new Date(), montant);
-		dao.addOperation(versement, codeCpte);
-		Compte compte = dao.consulterCompte(codeCpte);
+		banqueDao.addOperation(versement, codeCpte);
+		Compte compte = banqueDao.consulterCompte(codeCpte);
 		compte.setSolde(compte.getSolde()+montant);
 	}
 
 	public void retrait(String codeCpte, double montant) {
 		Retrait retrait = new Retrait(new Date(), montant);
-		dao.addOperation(retrait, codeCpte);
-		Compte compte = dao.consulterCompte(codeCpte);
+		banqueDao.addOperation(retrait, codeCpte);
+		Compte compte = banqueDao.consulterCompte(codeCpte);
 		compte.setSolde(compte.getSolde()-montant);
 	}
 
@@ -59,22 +59,26 @@ public class BanqueMetierImpl implements IbanqueMetier{
 	}
 
 	public Compte consulterCompte(String codeCpte) {
-		return dao.consulterCompte(codeCpte);
+		return banqueDao.consulterCompte(codeCpte);
 	}
 
-	public List<Operation> consulterOperations(String codeCompte) {
-		return dao.consulterOperations(codeCompte);
+	public List<Operation> consulterOperations(String codeCompte, int position, int nbOperation) {
+		return banqueDao.consulterOperations(codeCompte, position, nbOperation);
 	}
 
 	public Client consulterClient(Long codeCli) {
-		return dao.consulterClient(codeCli);
+		return banqueDao.consulterClient(codeCli);
 	}
 
 	public List<Client> consulterClients(String motCle) {
-		return dao.consulterClients(motCle);
+		return banqueDao.consulterClients(motCle);
 	}
 
 	public List<Compte> getComptesByClient(Long codeCli) {
-		return dao.getComptesByClient(codeCli);
+		return banqueDao.getComptesByClient(codeCli);
+	}
+
+	public long getNombreOperations(String codeCompte) {
+		return banqueDao.getNombreOperations(codeCompte);
 	}
 }

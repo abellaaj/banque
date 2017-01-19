@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="OPERATION")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="TYPE_OP", discriminatorType=DiscriminatorType.STRING, length=1)
+@DiscriminatorColumn(name="TYPE_OP", discriminatorType=DiscriminatorType.INTEGER, length=1)
 public class Operation implements Serializable{
 
 	/**

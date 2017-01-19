@@ -12,7 +12,7 @@ import javax.persistence.Entity;
  *
  */
 @Entity
-@DiscriminatorValue(value="R")
+@DiscriminatorValue(value="1")
 public class Retrait extends Operation implements Serializable {
 
 	/**
@@ -30,5 +30,8 @@ public class Retrait extends Operation implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Retrait";
+	}
 }
