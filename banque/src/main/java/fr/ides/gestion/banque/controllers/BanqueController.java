@@ -25,6 +25,7 @@ public class BanqueController {
 	
 	@Autowired
 	IbanqueMetier banqueMetier;
+	//test
 	
 	@RequestMapping(value="/index")
 	public String index(Model model){
