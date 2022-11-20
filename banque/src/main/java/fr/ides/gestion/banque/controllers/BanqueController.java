@@ -25,7 +25,7 @@ public class BanqueController {
 	
 	@Autowired
 	IbanqueMetier banqueMetier;
-	//test
+	//test from master
 	// test from branch test
 	
 	@RequestMapping(value="/index")
